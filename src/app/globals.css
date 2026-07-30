@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f1ea;
+  --color-ink: #0a0a0a;
+  --color-acid: #e8ff00;
+  --font-grotesk: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+:root {
+  --paper: #f4f1ea;
+  --ink: #0a0a0a;
+  --acid: #e8ff00;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f4f1ea;
+  color: #0a0a0a;
+}
+
+/* Force sharp corners everywhere for brutalist aesthetic */
+*, ::before, ::after {
+  border-radius: 0 !important;
+}
+
+::selection {
+  background-color: #e8ff00;
+  color: #0a0a0a;
+}
+
+/* Custom hard zero-blur offset shadow utilities */
+.shadow-hard-sm {
+  box-shadow: 4px 4px 0 0 #0a0a0a;
+}
+
+.shadow-hard {
+  box-shadow: 6px 6px 0 0 #0a0a0a;
+}
+
+.shadow-hard-lg {
+  box-shadow: 10px 10px 0 0 #0a0a0a;
+}
+
+.shadow-hard-acid {
+  box-shadow: 6px 6px 0 0 #0a0a0a, 12px 12px 0 0 #e8ff00;
+}
+
+/* Graph paper hairline grid texture */
+.grid-bg {
+  background-color: #f4f1ea;
+  background-image: 
+    linear-gradient(to right, rgba(10, 10, 10, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Tabular numerals for pixel-perfect decimal alignment */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Table row hover highlight */
+.cell-hover {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cell-hover:hover {
+  background-color: #e8ff00 !important;
+  color: #0a0a0a !important;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.25s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.2s ease-out forwards;
+}
